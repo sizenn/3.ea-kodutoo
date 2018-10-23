@@ -13,18 +13,9 @@ Press enter to go to the active blue backgrounded link.
 
 To close the search popup press ESC
 
-
-
-
-
-
-
-
+## Nõuded
 
 Kodutööna peab looma Chrome extension'i selliselt, et nõuded oleksid täidetud. Soovi korral võib ka teha Firefox'ile.
-
-
-## Nõuded
 
 1. Kirjelda README.md failis, mida rakendus teeb. 
 1. Rakendus peab tegema külastatava veebilehe/veebirakenduse kas ilusamaks, mugavamaks või huvitamaks.
