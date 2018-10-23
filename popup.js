@@ -17,6 +17,7 @@ function sendEnter () {
 document.addEventListener("DOMContentLoaded", function() {
     input = document.getElementById('input');
     input.addEventListener("input", sendString)
+    input.focus()
 
     input.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
