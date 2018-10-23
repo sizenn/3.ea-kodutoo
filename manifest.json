@@ -1,0 +1,15 @@
+{
+    "name": "Search and Click",
+    "version": "1.0",
+    "description": "Search a clickable link on a website and click on it with enter",
+    "permissions": ["activeTab", "<all_urls>"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "options_page": "options.html",
+    "page_action": {
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+}
