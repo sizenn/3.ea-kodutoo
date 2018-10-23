@@ -1,7 +1,9 @@
 let current
 let linkArray = []
+let pointer
 function search (str) {
     //change colors back
+    pointer = 0
     if(linkArray.length != 0){
         linkArray.forEach(function(elem) {
             elem.style.backgroundColor = ""
@@ -18,19 +20,36 @@ function search (str) {
         }
     }
     if(linkArray.length != 0){
-        current = linkArray[0];
-        current.style.backgroundColor = "#66FFFF"
-        current.scrollIntoView()
-        window.scrollBy(0, -150);
+        newCurrent()
     }else{
         current = null;
     }
-    console.log(linkArray)
   }
+
+//set new active link and scroll to it
+function newCurrent () {
+    current = linkArray[pointer];
+    current.style.backgroundColor = "#66FFFF"
+    current.scrollIntoView()
+    window.scrollBy(0, -150);
+}
+
 function enter () {
     if(current != null){
-        current.click();
+        current.click()
     }
+}
+
+function next () {
+    pointer ++
+    current.style.backgroundColor = "#FF99FF"
+    newCurrent()
+}
+
+function previous () {
+    pointer --
+    current.style.backgroundColor = "#FF99FF"
+    newCurrent()
 }
 
 chrome.runtime.onMessage.addListener(
@@ -40,7 +59,13 @@ chrome.runtime.onMessage.addListener(
                 search(request.word)
             }
         }
-        if(request.enter){
+        if (request.enter){
             enter()
+        }
+        if (request.next) {
+            next()
+        }
+        if(request.previous){
+            previous()
         }
 });

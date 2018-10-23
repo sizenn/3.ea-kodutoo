@@ -1,16 +1,26 @@
 let input
 
 function sendString () {
-    console.log("sending string")
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {"word": input.value})
       });
 };
 
 function sendEnter () {
-    console.log("sending enter")
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {"enter": "enter"})
+      });
+}
+
+function sendNext () {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {"next": "next"})
+      });
+}
+
+function sendPrevious () {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {"previous": "previous"})
       });
 }
 
@@ -19,10 +29,16 @@ document.addEventListener("DOMContentLoaded", function() {
     input.addEventListener("input", sendString)
     input.focus()
 
-    input.addEventListener("keyup", function(event) {
+    input.addEventListener("keydown", function(event) {
         if (event.keyCode === 13) {
             sendEnter()
             input.value = ''
+        }
+        if (event.ctrlKey && event.keyCode == 78){
+            sendNext()
+        }
+        if (event.ctrlKey && event.keyCode == 66){
+            sendPrevious()
         }
     });
     
