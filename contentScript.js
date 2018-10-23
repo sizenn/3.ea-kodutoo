@@ -55,9 +55,7 @@ function previous () {
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.word){
-            if (request.word.length >= 3){
-                search(request.word)
-            }
+            search(request.word)
         }
         if (request.enter){
             enter()
