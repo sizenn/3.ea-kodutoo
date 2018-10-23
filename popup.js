@@ -1,15 +1,12 @@
-let findBtn = document.getElementById('changeColor');
-let input = document.getElementById('input');
+let input
 
-findBtn.onclick = function(element) {
-    search(input.value)
+function send () {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {"word": input.value})
+      });
 };
 
-function search (str) {
-    console.log(str)
-    for (const a of document.querySelectorAll("a")) {
-        if (a.textContent.includes(str)) {
-          console.log(a.textContent)
-        }
-      }
-  }
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("search").addEventListener("click", send);
+    input = document.getElementById('input');
+});

@@ -2,14 +2,18 @@
     "name": "Search and Click",
     "version": "1.0",
     "description": "Search a clickable link on a website and click on it with enter",
-    "permissions": ["activeTab", "*://*/*"],
+    "permissions": ["activeTab"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
     },
     "options_page": "options.html",
-    "page_action": {
+    "browser_action": {
         "default_popup": "popup.html"
     },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["search.js"]
+    }],
     "manifest_version": 2
 }
