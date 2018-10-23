@@ -1,25 +1,41 @@
-let link
-
+let current
+let linkArray = []
 function search (str) {
-    console.log(str)
-    for (const a of document.querySelectorAll("a")) {
+    //change colors back
+    if(linkArray.length != 0){
+        linkArray.forEach(function(elem) {
+            elem.style.backgroundColor = ""
+        })
+    }
+    //empty linkArray
+    linkArray = []
+    //push new links
+    for (let a of document.querySelectorAll("a")) {
         if (a.textContent.includes(str)) {
-            link = a;
-            link.scrollIntoView()
-            break
+            a.style.backgroundColor = "#FF99FF"
+            linkArray.push(a)
         }
-      }
+    }
+    if(linkArray.length != 0){
+        current = linkArray[0];
+        current.style.backgroundColor = "#66FFFF"
+        current.scrollIntoView()
+        window.scrollBy(0, -40);
+    }else{
+        current = null;
+    }
+    console.log(linkArray)
   }
 function enter () {
-    console.log(link.textContent)
-    console.log("here")
-    link.click();
+    if(current != null){
+        current.click();
+    }
 }
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.word){
-            if (request.word !== ""){
+            if (request.word.length >= 2){
                 search(request.word)
             }
         }
