@@ -2,7 +2,7 @@
     "name": "Search and Click",
     "version": "1.0",
     "description": "Search a clickable link on a website and click on it with enter",
-    "permissions": ["activeTab", "<all_urls>"],
+    "permissions": ["activeTab", "*://*/*"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
