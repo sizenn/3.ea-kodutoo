@@ -11,7 +11,8 @@ function search (str) {
     linkArray = []
     //push new links
     for (let a of document.querySelectorAll("a")) {
-        if (a.textContent.includes(str)) {
+        let lowerCase = a.textContent.toLowerCase()
+        if (lowerCase.includes(str.toLowerCase())) {
             a.style.backgroundColor = "#FF99FF"
             linkArray.push(a)
         }
@@ -20,7 +21,7 @@ function search (str) {
         current = linkArray[0];
         current.style.backgroundColor = "#66FFFF"
         current.scrollIntoView()
-        window.scrollBy(0, -40);
+        window.scrollBy(0, -150);
     }else{
         current = null;
     }
@@ -35,7 +36,7 @@ function enter () {
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.word){
-            if (request.word.length >= 2){
+            if (request.word.length >= 3){
                 search(request.word)
             }
         }
