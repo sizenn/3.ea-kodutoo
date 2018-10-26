@@ -41,15 +41,19 @@ function enter () {
 }
 
 function next () {
-    pointer ++
-    current.style.backgroundColor = "#FF99FF"
-    newCurrent()
+    if(pointer < linkArray.length-1){
+        pointer ++
+        current.style.backgroundColor = "#FF99FF"
+        newCurrent()
+    }
 }
 
 function previous () {
-    pointer --
-    current.style.backgroundColor = "#FF99FF"
-    newCurrent()
+    if(pointer > 0){
+        pointer --
+        current.style.backgroundColor = "#FF99FF"
+        newCurrent()
+    }
 }
 
 chrome.runtime.onMessage.addListener(
