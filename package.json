@@ -1,7 +1,7 @@
 {
   "name": "3.ea-kodutoo",
   "version": "1.0.0",
-  "description": "",
+  "description": "If you never want to move your hand to the mouse when coding or browsing the internet, then this extension is for you!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,14 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/eesrakenduste-arendamine-2018k/2.ea-kodutoo.git"
   },
-  "author": "",
+  "author": "Rasmus Kivipõld",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eesrakenduste-arendamine-2018k/2.ea-kodutoo/issues"
   },
   "homepage": "https://github.com/eesrakenduste-arendamine-2018k/2.ea-kodutoo#readme",
   "devDependencies": {
-    "eslint": "^4.18.2",
-    "standard": "^11.0.0"
-  }
+    "eslint": "^5.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {}
 }

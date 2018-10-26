@@ -1,7 +1,6 @@
 {
   "env": {
-    "browser": true,
-    "webextensions": true
+    "browser": true
   },
   "extends": ["standard"]
-}
+}   
